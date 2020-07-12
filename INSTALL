@@ -1,0 +1,43 @@
+#!/bin/bash
+if [[ $(whoami) != "root" ]];then
+	echo -e "\033[1;31m[-]\033[0m You aren't root"
+	exit
+fi
+function operation(){
+	function loading(){
+		while [ true ]
+		do
+			echo -ne "."
+			sleep 2
+		done
+	}
+	echo -ne $1
+	loading&
+	PID_loading=$!
+	# if the installation or uninstallation have dialogs, it doesn't show it, but is executed.
+	if [[ $3 = 1 ]];then
+		$2
+		echo -ne "\033[1;32mOK\033[0m"
+	else
+		DEBIAN_FRONTEND=nointeractive $2 > /dev/null 2>&1
+		echo -ne "\033[1;32mOK\033[0m"
+	fi
+	kill -19 $PID_loading > /dev/null 2>&1
+	echo ""
+}
+if [[ ! $(dpkg -l | grep "dialog boxes") ]];then
+	operation "installating dialog" "apt-get install -y dialog"
+else
+	echo -e "\033[1;34m[i]\033[0m dialog \033[1;32minstalled\033[0m"
+fi
+operation "creating directory" "mkdir /etc/notifybox"
+operation "moving command" "mv ./notifybox /bin/"
+operation "creating list" "touch /var/cache/notifybox.list"
+operation "moving notifybox.sh" "mv ./notifybox.sh /etc/notifybox/"
+operation "moving dialogrc.alert" "mv ./dialogrc.alert /etc/notifybox/"
+operation "moving dialogrc.error" "mv ./dialogrc.error /etc/notifybox/"
+operation "moving dialogrc.info" "mv ./dialogrc.info /etc/notifybox/"
+operation "moving uninstaller" "mv ./notifybox-uninstaller /bin/"
+operation "changing dialog permissions" "chmod o+w /etc/dialogrc"
+
+echo -e "\033[1;32m✔\033[0m Installation completed"
