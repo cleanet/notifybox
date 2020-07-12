@@ -48,4 +48,4 @@ but with arguments, this needs permissions root.
 
 ![error](https://github.com/cleanet/notifybox/blob/master/screenshots/error.png)
 ## License
-
+GNU General Public License v3.0
