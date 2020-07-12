@@ -1,0 +1,56 @@
+#!/bin/bash
+
+if [[ $# -gt 0 ]] && [[ $# -lt 5 ]] || [[ $# -gt 5 ]];then
+	echo -e "\033[1;31m[-]\033[0m The command needs 5 arguments"
+	echo -e "	notifybox"
+	echo -e "		Hearing to notifications popups with dialog"
+	echo -e "	notifybox [type] --title [title] --text [text]"
+	echo -e "	type: "
+	echo -e "		--alert"
+	echo -e "		--info"
+	echo -e "		--error"
+elif [[  $# == 5 ]];then
+	error=""
+	case $1 in
+		--alert|--info|--error)
+		;;
+		*)
+			error="$1"
+		;;
+	esac
+
+	if [[ $2 != "--title" ]];then
+		error="$2"
+	elif [[ $4 != "--text" ]];then
+		error="$4"
+	fi
+	if [[ $error != "" ]];then
+                echo -e "\033[1;31m[-]\033[0m Error syntax: $error"
+		echo -e "       notifybox"
+		echo -e "               Hearing to notifications popups with dialog"
+                echo -e "       notifybox [type] --title [title] --text [text]"
+                echo -e "       type:"
+                echo -e "               --alert"
+                echo -e "               --info"
+                echo -e "               --error"
+	else
+		type=$1
+		TYPE=""
+		title=": $3"
+		text=$5
+		case $1 in
+			--alert)
+				TYPE="ALERT"
+			;;
+			--info)
+				TYPE="INFO"
+			;;
+			--error)
+				TYPE="ERROR"
+			;;
+		esac
+		echo "dialog --begin 2 5 --backtitle \"notifybox\" --title \"$TYPE$title\" --msgbox \"$5\" 10 50" >> /var/cache/notifybox.list
+	fi
+else
+	exec /etc/notifybox/notifybox.sh
+fi
