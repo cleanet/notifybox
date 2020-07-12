@@ -1,6 +1,6 @@
 # notifybox
 
-![notifybox](https://github.com/cleanet/notifybox/screenshorts/notifybox.png)
+![notifybox](https://github.com/cleanet/notifybox/blob/master/screenshots/notifybox.png)
 notifybox is a command that allow to have a notifications' message box in your terminal, thank at
 dialog package. It is programmed in Debian.
 
@@ -34,11 +34,12 @@ show notifications popups with dialog.
 IMPORTANT: the command notifybox without arguments (`notifybox`) can execute it without root (superuser),
 but with arguments, this needs permissions root.
 
-Examples:
+## Examples:
 
 `notifybox --alert --title "bind9" --text "Bind9 doesn't run"`
-![alert](https://github.com/cleanet/notifybox/screenshorts/alert.png)
+![alert](https://github.com/cleanet/notifybox/blob/master/screenshots/alert.png)
 `notifybox --info  --title "ssheld new rule" --text "new IP denied by sshield"`
-![info](https://github.com/cleanet/notifybox/screenshorts/info.png)
+![info](https://github.com/cleanet/notifybox/blob/master/screenshots/info.png)
 `notifybox --error --title "Apache2" --text "Fatal error"`
-![error](https://github.com/cleanet/notifybox/screenshorts/error.png)
+![error](https://github.com/cleanet/notifybox/blob/master/screenshots/error.png)
+## License
