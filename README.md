@@ -39,10 +39,13 @@ but with arguments, this needs permissions root.
 `notifybox --alert --title "bind9" --text "Bind9 doesn't run"`
 
 ![alert](https://github.com/cleanet/notifybox/blob/master/screenshots/alert.png)
+
 `notifybox --info  --title "ssheld new rule" --text "new IP denied by sshield"`
 
 ![info](https://github.com/cleanet/notifybox/blob/master/screenshots/info.png)
+
 `notifybox --error --title "Apache2" --text "Fatal error"`
 
 ![error](https://github.com/cleanet/notifybox/blob/master/screenshots/error.png)
 ## License
+
