@@ -1,3 +1,4 @@
+![](screenshorts/notifybox.png)
 notifybox is a command that allow to have a notifications' message box in your terminal, thank at
 dialog package. It is programmed in Debian.
 
@@ -35,5 +36,8 @@ but with arguments, this needs permissions root.
 Examples:
 
 	notifybox --alert --title "bind9" --text "Bind9 doesn't run"
+	![](screenshorts/alert.png)
 	notifybox --info  --title "ssheld new rule" --text "new IP denied by sshield"
+	![](screenshorts/info.png)
 	notifybox --error --title "Apache2" --text "Fatal error"
+	![](screenshorts/error.png)
