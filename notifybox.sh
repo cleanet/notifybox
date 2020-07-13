@@ -10,4 +10,5 @@ do
 		$(cp /etc/notifybox/dialogrc.alert /etc/dialogrc)
 	fi
 	eval $line
+	clear
 done
