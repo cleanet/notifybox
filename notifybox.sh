@@ -1,5 +1,6 @@
 #!/bin/sh
 FILE="/var/cache/notifybox.list"
+clear
 tail -n 0 -F $FILE | while read line
 do
 	if [ $(echo $line | grep -E -o "ERROR") ];then
