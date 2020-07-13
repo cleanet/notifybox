@@ -31,9 +31,6 @@ and the uninstaller delete it.
 The command allows to add notifications and only run `notifybox` without arguments, this is hearing for 
 show notifications popups with dialog.
 
-IMPORTANT: the command notifybox without arguments (`notifybox`) can execute it without root (superuser),
-but with arguments, this needs permissions root.
-
 ## Examples:
 
 `notifybox --alert --title "bind9" --text "Bind9 doesn't run"`
