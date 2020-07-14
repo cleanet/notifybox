@@ -33,5 +33,5 @@ read ask_dialog
 operation "deleting directory" "rm -rf /etc/notifybox"
 operation "deleting dialog permissions" "chmod o-w /etc/dialogrc"
 operation "deleting command" "shred -u /bin/notifybox"
+echo -e "\033[1;32m ^|^t\033[0m Uninstallation completed"
 operation "deleting uninstaller" "shred -u /bin/notifybox-uninstaller"
-echo -e "\033[1;34m[i]\033[0m uninstallation completed"
