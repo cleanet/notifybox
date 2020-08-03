@@ -17,16 +17,22 @@ and the uninstaller delete it.
 	 |            |                     |
 	 |            |\__ dialogrc.info    | dialog configurations files
 	 |            |                     |
-	 |            \__ dialogrc.alert    |
-	 |                                ___
+	 |            |\__ dialogrc.alert   |
+	 |            |                   ___
+	 |            \__ notifybox.conf <---- notifybox configuration file
 	 |\__ bin/
 	 |      |\__ notifybox <--- command
 	 |      |
-	 |       \__ notifybox-uninstaller <--- uninstaller
+	 |      |\__ notifybox-uninstaller <--- uninstaller
+	 |      |
+	 |      \__ notifybox-conf <-- script configuration
 	 |
 	  \__ /var/
 	           \__ cache/
-	                     \__ notifybox.list <-- notifications list
+		            \__ notifybox/
+		                         |\__ history_commands.list <-- notifications list
+		                         |
+		                         \__ services.list <-- services list for the script config
 
 The command allows to add notifications and only run `notifybox` without arguments, this is hearing for 
 show notifications popups with dialog.
