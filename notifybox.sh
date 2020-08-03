@@ -1,5 +1,8 @@
 #!/bin/sh
-FILE="/var/cache/notifybox.list"
+
+# Read the file. line by line and this changes the configuration file, and finally execute the line.
+
+FILE="/var/cache/notifybox/history_commands.list"
 clear
 tail -n 0 -F $FILE | while read line
 do
@@ -10,6 +13,19 @@ do
 	elif [ $(echo $line | grep -E -o "ALERT") ];then
 		$(cp /etc/notifybox/dialogrc.alert /etc/dialogrc)
 	fi
+
+	# execute the command
 	eval $line
+	bell=$(cat /etc/notifybox/notifybox.conf | grep "bell")
+	IFS="=" read -ra bell <<< $bell
+	bell=${bell[1]}
+	case $bell in
+		YES|yes)
+			echo -en "\007"
+		;;
+		NO|no|*)
+			:
+		;;
+	esac
 	clear
 done
