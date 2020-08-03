@@ -3,6 +3,8 @@ if [[ $(whoami) != "root" ]];then
 	echo -e "\033[1;31m[-]\033[0m You aren't root"
 	exit
 fi
+
+declare -r LIST_SERVICES="/var/cache/notifybox/services.list"
 function operation(){
 	function loading(){
 		while [ true ]
@@ -30,6 +32,20 @@ read ask_dialog
 	if [[ $ask_dialog == "Y" ]] || [[ $ask_dialog == "y" ]];then
 		operation "uninstalling dialog" "apt-get purge -y dialog"
 	fi
+
+while IFS= read -r line
+do
+	path=$(find /lib/systemd/ -type f -iname "$line")
+	if [[ $(cat $path | grep -E -o "notifybox --") ]];then
+		number_options=$(cat $path | grep "notifybox" | wc -l)
+		for i in $(seq 1 $number_options)
+		do
+			number=$(cat -n $path | grep "notifybox" | grep -E -o "[0-9]+" | head -n 1 )
+			sed -i "${number}d" $path
+		done
+	fi
+done < $LIST_SERVICES
+
 operation "deleting directory /etc/notifybox/" "rm -rf /etc/notifybox"
 operation "deleting derectory /var/cache/notifybox/" "rm -rf /var/cache/notifybox/"
 operation "deleting dialog permissions" "chmod o-w /etc/dialogrc"
