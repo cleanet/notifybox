@@ -30,7 +30,8 @@ read ask_dialog
 	if [[ $ask_dialog == "Y" ]] || [[ $ask_dialog == "y" ]];then
 		operation "uninstalling dialog" "apt-get purge -y dialog"
 	fi
-operation "deleting directory" "rm -rf /etc/notifybox"
+operation "deleting directory /etc/notifybox/" "rm -rf /etc/notifybox"
+operation "deleting derectory /var/cache/notifybox/" "rm -rf /var/cache/notifybox/"
 operation "deleting dialog permissions" "chmod o-w /etc/dialogrc"
 operation "deleting command" "shred -u /bin/notifybox"
 echo -e "\033[1;32m ^|^t\033[0m Uninstallation completed"
