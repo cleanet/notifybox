@@ -30,13 +30,16 @@ if [[ ! $(dpkg -l | grep "dialog boxes") ]];then
 else
 	echo -e "\033[1;34m[i]\033[0m dialog \033[1;32minstalled\033[0m"
 fi
-operation "creating directory" "mkdir /etc/notifybox"
+operation "creating directory" "mkdir -p /etc/notifybox"
+operation "creating directory" "mkdir -p /var/cache/notifybox/"
 operation "moving command" "mv ./notifybox /bin/"
-operation "creating list" "touch /var/cache/notifybox.list"
+operation "creating list" "touch /var/cache/notifybox/history_commands.list"
+operation "moving services.list" "mv ./services.list /var/cache/notifybox/"
 operation "moving notifybox.sh" "mv ./notifybox.sh /etc/notifybox/"
 operation "moving dialogrc.alert" "mv ./dialogrc.alert /etc/notifybox/"
 operation "moving dialogrc.error" "mv ./dialogrc.error /etc/notifybox/"
 operation "moving dialogrc.info" "mv ./dialogrc.info /etc/notifybox/"
+operation "moving configuration file" "mv ./notifybox.conf /etc/notifybox/"
 operation "moving uninstaller" "mv ./notifybox-uninstaller /bin/"
 operation "changing dialog permissions" "chmod o+w /etc/dialogrc"
 
