@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# if there are more than 5 arguments or less
 if [[ $# -gt 0 ]] && [[ $# -lt 5 ]] || [[ $# -gt 5 ]];then
 	echo -e "\033[1;31m[-]\033[0m The command needs 5 arguments"
 	echo -e "	notifybox"
@@ -9,21 +10,29 @@ if [[ $# -gt 0 ]] && [[ $# -lt 5 ]] || [[ $# -gt 5 ]];then
 	echo -e "		--alert"
 	echo -e "		--info"
 	echo -e "		--error"
+
+# 5 arguments
 elif [[  $# == 5 ]];then
 	error=""
+
+	# get the first argument
 	case $1 in
 		--alert|--info|--error)
 		;;
 		*)
+			# Save the argument as error
 			error="$1"
 		;;
 	esac
 
+	# If the arguments aren't the specified, save it in the variable `error`
 	if [[ $2 != "--title" ]];then
 		error="$2"
 	elif [[ $4 != "--text" ]];then
 		error="$4"
 	fi
+
+	# if variable `error` has content, show the help
 	if [[ $error != "" ]];then
                 echo -e "\033[1;31m[-]\033[0m Error syntax: $error"
 		echo -e "       notifybox"
@@ -49,7 +58,8 @@ elif [[  $# == 5 ]];then
 				TYPE="ERROR"
 			;;
 		esac
-		echo "dialog --begin 2 5 --backtitle \"notifybox\" --title \"$TYPE$title\" --msgbox \"$5\" 10 50" >> /var/cache/notifybox.list
+		# save the command generated in the list specified
+		echo "dialog --begin 2 5 --backtitle \"notifybox\" --title \"$TYPE$title\" --msgbox \"$5\" 10 50" >> /var/cache/notifybox/history_commands.list
 	fi
 else
 	exec /etc/notifybox/notifybox.sh
