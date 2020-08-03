@@ -41,6 +41,7 @@ operation "moving dialogrc.error" "mv ./dialogrc.error /etc/notifybox/"
 operation "moving dialogrc.info" "mv ./dialogrc.info /etc/notifybox/"
 operation "moving configuration file" "mv ./notifybox.conf /etc/notifybox/"
 operation "moving uninstaller" "mv ./notifybox-uninstaller /bin/"
+operation "moving config and rename to notifybox-conf" "mv ./config /bin/notifybox-conf"
 operation "changing dialog permissions" "chmod o+w /etc/dialogrc"
 
-echo -e "\033[1;32m✔\033[0m Installation completed"
+echo -e "\033[1;32m ^|^t\033[0m Installation completed"
