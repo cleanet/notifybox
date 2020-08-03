@@ -2,7 +2,7 @@
 
 #read configuration file
 function config(){
-	file="./notifybox.conf"
+	file="/etc/notifybox/notifybox.conf"
 	line=$(cat $file | grep "$2")
 	IFS="=" read -ra line <<< $line
 	line=${line[1]}
