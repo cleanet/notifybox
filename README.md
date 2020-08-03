@@ -37,6 +37,9 @@ and the uninstaller delete it.
 The command allows to add notifications and only run `notifybox` without arguments, this is hearing for 
 show notifications popups with dialog.
 
+## diagram of config script
+![diagram](https://github.com/cleanet/notifybox/blob/master/screenshots/diagram_config.png)
+
 ## Examples:
 
 `notifybox --alert --title "bind9" --text "Bind9 doesn't run"`
