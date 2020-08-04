@@ -45,7 +45,7 @@ do
 		done
 	fi
 done < $LIST_SERVICES
-
+operation "restarting daemons" "systemctl daemon-reload"
 operation "deleting directory /etc/notifybox/" "rm -rf /etc/notifybox"
 operation "deleting derectory /var/cache/notifybox/" "rm -rf /var/cache/notifybox/"
 operation "deleting dialog permissions" "chmod o-w /etc/dialogrc"
