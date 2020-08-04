@@ -16,7 +16,7 @@ do
 
 	# execute the command
 	eval $line
-	bell=$(cat /etc/notifybox/notifybox.conf | grep "bell")
+	bell=$(cat "/etc/notifybox/notifybox.conf" | grep "bell=")
 	IFS="=" read -ra list_bell <<< $bell
 	bell=${list_bell[1]}
 	case $bell in
