@@ -37,7 +37,7 @@ and the uninstaller delete it.
 The command allows to add notifications and only run `notifybox` without arguments, this is hearing for 
 show notifications popups with dialog.
 
-## diagram of config script
+## diagram of notifybox-conf
 ![diagram](https://github.com/cleanet/notifybox/blob/master/screenshots/diagram_config.png)
 
 ## Examples:
