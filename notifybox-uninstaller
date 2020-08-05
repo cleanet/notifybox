@@ -43,6 +43,7 @@ do
 			do
 				number=$(cat -n $path | grep "notifybox" | grep -E -o "[0-9]+" | head -n 1 )
 				sed -i "${number}d" $path
+				echo -e "\033[1;32m[+]\033[0m $line: Configuration deleted"
 			done
 		fi
         fi
