@@ -39,7 +39,7 @@ do
         if [[ $path != "" ]];then
                 if [[ $(cat $path | grep -E -o "notifybox --") ]];then
 			number_options=$(cat $path | grep "notifybox" | wc -l)
-			for i in $(1 $number_options)
+			for i in $(seq 1 $number_options)
 			do
 				number=$(cat -n $path | grep "notifybox" | grep -E -o "[0-9]+" | head -n 1 )
 				sed -i "${number}d" $path
