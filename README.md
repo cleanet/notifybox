@@ -4,9 +4,9 @@
 notifybox is a command that allow to have a notifications' message box in your terminal, thank at
 dialog package. It is programmed in Debian.
 
-This is very easy of install. Execute the INSTALL file with `./INSTALL`, and for uninstall to exist the
+This is very easy of install. Execute the INSTALL file with `./INSTALL`, and for uninstall, exist the
 command `notifybox-uninstaller`. The installer changes the permissions to `/etc/dialogrc` (chmod o+w)
-and the uninstaller delete it.
+and the uninstaller delete it. Also you can configures the `notifybox-conf` script for that in each status of one systemd's service, it inform you
 
  ## Directories tree:
 
