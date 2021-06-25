@@ -55,3 +55,8 @@ show notifications popups with dialog.
 ![error](https://github.com/cleanet/notifybox/blob/master/screenshots/error.png)
 ## License
 GNU General Public License v3.0
+## Contact
+Autor      | cleanet
+------------|----------
+Website  |  https://www.cleannet.260mb.net
+Email      |  cleannet29@gmail.com
