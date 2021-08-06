@@ -1,6 +1,7 @@
 # notifybox
 
 ![notifybox](https://github.com/cleanet/notifybox/blob/master/screenshots/notifybox.png)
+
 notifybox is a command that allow to have a notifications' message box in your terminal, thank at
 dialog package. It is programmed in Debian.
 
