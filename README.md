@@ -59,5 +59,5 @@ GNU General Public License v3.0
 ## Contact
 Autor      | cleanet
 ------------|----------
-Website  |  https://www.cleannet.260mb.net
+Website  |  https://cleanet.alwaysdata.net
 Email      |  cleannet29@gmail.com
